@@ -56,9 +56,24 @@ class UserModel(models.Model):
 
 class SaleSummary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    
     year = models.IntegerField()
     month = models.IntegerField()
+    
     sale_count = models.IntegerField()
+    
+    profit_sum = models.IntegerField()
+    profit_avg = models.DecimalField(decimal_places=2, max_digits=100)
+
+    flat_count = models.IntegerField()
+    flat_sum = models.IntegerField()
+
+    commission_rate = models.IntegerField()
+    commission_earnings = models.IntegerField()
+
+    volume_bonus = models.IntegerField()
+
+    earnings_total = models.DecimalField(decimal_places=2, max_digits=100)
 
 #Need a foreign key to join sales table with users table to determine which person gets credit for a sale
 #Write a loop in a view to calculate commission if user sales are greater than totalsales in Payplan model
