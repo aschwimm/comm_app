@@ -19,7 +19,7 @@ class LogSaleForm(forms.Form):
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
+        return HttpResponseRedirect(reverse("users:login"))
     current_user = request.user
     if not Sale.objects.filter(salecredit=current_user).exists():
         return render(request, "saletracker/index.html", {
