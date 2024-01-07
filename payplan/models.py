@@ -55,6 +55,7 @@ class UserModel(models.Model):
     
 
 class SaleSummary(models.Model):
+    # Foreign key to link user with their summary
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     
     year = models.IntegerField()
